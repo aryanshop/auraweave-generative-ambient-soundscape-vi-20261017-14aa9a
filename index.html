@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraWeave: Generative Ambient Soundscape & Visualizer Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <h1>AuraWeave</h1>
+      </div>
+      <p class="tagline">Generative Soundscapes & Immersive Flow Visuals</p>
+    </header>
+
+    <main class="main-grid">
+      <!-- Visualizer & Master Control Canvas Section -->
+      <section class="visualizer-section" aria-label="Visualizer Canvas">
+        <canvas id="flowCanvas"></canvas>
+        <div class="visualizer-overlay">
+          <div class="master-play-panel">
+            <button id="masterPlayBtn" class="btn btn-primary btn-glow" aria-label="Toggle Soundscape">
+              <span class="play-icon">▶</span> <span id="playBtnText">Start Journey</span>
+            </button>
+            <div class="master-volume-wrap">
+              <label for="masterVolume">Master Volume</label>
+              <input type="range" id="masterVolume" min="0" max="1" step="0.01" value="0.7">
+            </div>
+          </div>
+          <div class="timer-widget" id="timerWidget">
+            <span id="timerDisplay">25:00</span>
+            <div class="timer-controls">
+              <button id="timerToggle" class="btn btn-sm">Start Timer</button>
+              <button id="timerReset" class="btn btn-sm btn-subtle">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Controls & Generators Panel -->
+      <section class="controls-section" aria-label="Soundscape Generators">
+        <div class="presets-bar">
+          <h3>Presets</h3>
+          <div class="preset-buttons">
+            <button class="btn btn-preset" data-preset="focus">Deep Focus</button>
+            <button class="btn btn-preset" data-preset="sleep">Cosmic Sleep</button>
+            <button class="btn btn-preset" data-preset="rain">Forest Rain</button>
+            <button class="btn btn-preset" data-preset="cafe">Cozy Café</button>
+            <button class="btn btn-preset" data-preset="clear">Reset All</button>
+          </div>
+        </div>
+
+        <div class="generators-grid">
+          <!-- Generator 1: Cosmic Drone -->
+          <div class="generator-card" data-gen="drone">
+            <div class="gen-header">
+              <label class="toggle-switch">
+                <input type="checkbox" id="gen-drone-active">
+                <span class="slider"></span>
+              </label>
+              <h4>Cosmic Drone</h4>
+            </div>
+            <p class="gen-desc">Warm harmonic synthesizer chords</p>
+            <div class="gen-controls">
+              <div class="control-group">
+                <label>Volume</label>
+                <input type="range" id="gen-drone-vol" min="0" max="1" step="0.01" value="0.5">
+              </div>
+              <div class="control-group">
+                <label>Filter Cutoff</label>
+                <input type="range" id="gen-drone-filter" min="100" max="3000" step="10" value="800">
+              </div>
+            </div>
+          </div>
+
+          <!-- Generator 2: Rainfall -->
+          <div class="generator-card" data-gen="rain">
+            <div class="gen-header">
+              <label class="toggle-switch">
+                <input type="checkbox" id="gen-rain-active">
+                <span class="slider"></span>
+              </label>
+              <h4>Velvet Rain</h4>
+            </div>
+            <p class="gen-desc">Textured filtered pink noise</p>
+            <div class="gen-controls">
+              <div class="control-group">
+                <label>Volume</label>
+                <input type="range" id="gen-rain-vol" min="0" max="1" step="0.01" value="0.4">
+              </div>
+              <div class="control-group">
+                <label>Density / Tone</label>
+                <input type="range" id="gen-rain-tone" min="500" max="5000" step="50" value="2000">
+              </div>
+            </div>
+          </div>
+
+          <!-- Generator 3: Stellar Wind -->
+          <div class="generator-card" data-gen="wind">
+            <div class="gen-header">
+              <label class="toggle-switch">
+                <input type="checkbox" id="gen-wind-active">
+                <span class="slider"></span>
+              </label>
+              <h4>Solar Wind</h4>
+            </div>
+            <p class="gen-desc">Modulating ambient air stream</p>
+            <div class="gen-controls">
+              <div class="control-group">
+                <label>Volume</label>
+                <input type="range" id="gen-wind-vol" min="0" max="1" step="0.01" value="0.3">
+              </div>
+              <div class="control-group">
+                <label>Sweep Speed</label>
+                <input type="range" id="gen-wind-speed" min="0.05" max="1" step="0.05" value="0.2">
+              </div>
+            </div>
+          </div>
+
+          <!-- Generator 4: Crystal Chimes -->
+          <div class="generator-card" data-gen="chime">
+            <div class="gen-header">
+              <label class="toggle-switch">
+                <input type="checkbox" id="gen-chime-active">
+                <span class="slider"></span>
+              </label>
+              <h4>Crystal Chimes</h4>
+            </div>
+            <p class="gen-desc">Procedural meditative bells</p>
+            <div class="gen-controls">
+              <div class="control-group">
+                <label>Volume</label>
+                <input type="range" id="gen-chime-vol" min="0" max="1" step="0.01" value="0.5">
+              </div>
+              <div class="control-group">
+                <label>Interval (Speed)</label>
+                <input type="range" id="gen-chime-rate" min="1" max="8" step="0.5" value="3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>AuraWeave Studio &bull; Built with HTML5 Canvas & Web Audio API &bull; 100% Client-Side</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
